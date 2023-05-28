@@ -33,7 +33,7 @@ pipeline {
         }
         stage('Notification') {
             steps {
-                slackSend(channel: 'your_channel_id', message: 'Please choose an option:', attachments: [
+                slackSend(channel: 'test-alerts', message: 'Please choose an option:', attachments: [
                     [
                         fallback: 'Please choose an option:',
                         actions: [
