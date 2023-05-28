@@ -31,5 +31,26 @@ pipeline {
                 }
             }
         }
+        stage('Notification') {
+            steps {
+                slackSend(channel: 'your_channel_id', message: 'Please choose an option:', attachments: [
+                    [
+                        fallback: 'Please choose an option:',
+                        actions: [
+                            [
+                                type: 'button',
+                                text: 'Button 1',
+                                url: 'https://example.com/button1'
+                            ],
+                            [
+                                type: 'button',
+                                text: 'Button 2',
+                                url: 'https://example.com/button2'
+                            ]
+                        ]
+                    ]
+                ])
+            }
+        }
     }
 }
